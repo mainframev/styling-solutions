@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
-  "*.{js,ts,tsx}": "pnpm lint:all && pnpm check:types:all",
+  "*.{js,ts,tsx}": ["nx affected:lint --parallel", "nx affected:check:types --parallel"],
 };
