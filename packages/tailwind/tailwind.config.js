@@ -1,4 +1,4 @@
-const { palette } = require("./styles/defaultTheme.ts");
+const { palette } = require("./styles/defaultTheme");
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
