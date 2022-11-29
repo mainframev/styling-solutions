@@ -97,7 +97,7 @@ const DogList = ({
     if (images.length > 0) setDoges(images);
 
     async function fetchDoges() {
-      const res = await fetch("/api/dogs" + new URLSearchParams({ breed }));
+      const res = await fetch("/api/dogs?" + new URLSearchParams({ breed }));
       const data = await res.json();
       if (data) {
         setLoading(false);
