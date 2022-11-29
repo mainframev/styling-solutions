@@ -1,0 +1,36 @@
+{
+  "name": "linaria-rfc",
+  "description": "An example app to test linaria",
+  "author": "mainframev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check:types": "tsc --noEmit",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@callstack/react-theme-provider": "^3.0.8",
+    "@linaria/atomic": "^4.2.2",
+    "@linaria/core": "^4.2.2",
+    "@linaria/react": "^4.3.0",
+    "axios": "^1.1.3",
+    "next": "13.0.4",
+    "next-linaria": "^1.0.1-beta",
+    "normalize.css": "^8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@linaria/babel-preset": "^4.3.0",
+    "@linaria/webpack-loader": "^4.1.8",
+    "eslint-config-next": "13.0.5",
+    "babel-loader": "^9.1.0",
+    "css-hot-loader": "^1.4.4",
+    "css-loader": "^6.7.2",
+    "mini-css-extract-plugin": "^2.7.0",
+    "webpack": "^5.0.0"
+  }
+}

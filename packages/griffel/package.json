@@ -1,0 +1,27 @@
+{
+  "name": "griffel-rfc",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [],
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "check:types": "tsc --noEmit",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@griffel/react": "1.4.2",
+    "@next/font": "13.0.4",
+    "axios": "0.27.2",
+    "next": "13.0.4",
+    "normalize.css": "8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@griffel/next-extraction-plugin": "0.0.7",
+    "eslint-config-next": "13.0.5",
+    "@griffel/webpack-loader": "2.1.3"
+  }
+}

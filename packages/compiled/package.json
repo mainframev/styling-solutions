@@ -1,0 +1,29 @@
+{
+  "name": "compiled-rfc",
+  "description": "An example app to test compiled",
+  "author": "mainframev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check:types": "tsc --noEmit",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@compiled/react": "^0.11.1",
+    "axios": "^1.1.3",
+    "next": "13.0.4",
+    "normalize.css": "^8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@compiled/eslint-plugin": "^0.4.2",
+    "eslint-config-next": "13.0.5",
+    "@compiled/webpack-loader": "^0.9.5",
+    "babel-loader": "^9.1.0",
+    "webpack": "^5.0.0"
+  }
+}

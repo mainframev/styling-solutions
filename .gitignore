@@ -4,6 +4,11 @@
 dist
 tmp
 /out-tsc
+.vercel
+
+# next.js
+.next
+/out/
 
 # dependencies
 node_modules
@@ -18,11 +23,7 @@ node_modules
 *.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode
 
 # misc
 /.sass-cache
@@ -37,3 +38,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
