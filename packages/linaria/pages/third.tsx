@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "../components/Badge";
 import Heading from "../components/Heading";
-import Button from "../components/Button";
+import Button, { ButtonCustomColors } from "../components/Button";
 import { styled } from "@linaria/react";
 
 const getGap = (spacing: "small" | "medium" | "large") => {
@@ -66,24 +66,38 @@ const ComponentSet = () => {
         </Stack>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
 export default function ThirdPage() {
   const [forceRenderer, setForceRenderer] = React.useState(0);
-  const buttonColors = ["Brown", "Blue", "Green", "Red", "Yellow", "Purple", "Pink", "Orange", "Gray", "Black", "White", "IndianRed", "MidnightBlue", "Sienna",];
+  const buttonColors: ButtonCustomColors[] = [
+    "Brown",
+    "CornflowerBlue",
+    "DarkGoldenRod",
+    "DarkOliveGreen",
+    "DarkSalmon",
+    "DarkSlateGray",
+    "IndianRed",
+    "MidnightBlue",
+    "Sienna",
+    "Teal",
+    "YellowGreen",
+  ];
 
-  const timer = setTimeout(function() {
-    if (forceRenderer >= buttonColors.length - 1)
-      clearTimeout(timer);
-    else
-      setForceRenderer(forceRenderer + 1)
+  const timer = setTimeout(function () {
+    if (forceRenderer >= buttonColors.length - 1) clearTimeout(timer);
+    else setForceRenderer(forceRenderer + 1);
   }, 1000);
 
   return (
     <Stack $direction="column">
       <ComponentSet />
-      {buttonColors.map(color => <Button key={color} customBackground={buttonColors[forceRenderer]}>Custom Color</Button>)}
+      {buttonColors.map(color => (
+        <Button key={color} customBackground={buttonColors[forceRenderer]}>
+          Custom Color
+        </Button>
+      ))}
     </Stack>
   );
 }
