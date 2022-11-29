@@ -16,7 +16,7 @@ const Heading = ({ type = "display", children, as = "div" }: React.PropsWithChil
     <StyledComponent
       as={as}
       css={[
-        type === "display" && { fontSize: "3rem", lineHeight: "3.2rem" },
+        type === "display" && { fontSize: "2.8rem", lineHeight: "3rem" },
         type === "displaySubtitle" && { fontSize: "2.5rem", lineHeight: "2.7rem" },
         type === "title1" && { fontSize: "2rem", lineHeight: "2.2rem" },
         type === "title2" && { fontSize: "1.8rem", lineHeight: "2rem" },

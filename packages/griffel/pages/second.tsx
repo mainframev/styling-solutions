@@ -1,4 +1,3 @@
-import axios from "axios";
 import DogList from "../components/DogList";
 import { GetServerSideProps } from "next";
 
@@ -20,17 +19,16 @@ export const getServerSideProps: GetServerSideProps<{
   images: string[] | never;
   allSuggestions?: string[];
   error?: boolean;
-}> = async ({ res }) => {
+}> = async () => {
   try {
-    res.setHeader("Cache-Control", "public, s-maxage=10, stale-while-revalidate=59");
-
-    const { data: allSuggestions } = await axios.get("https://dog.ceo/api/breeds/list/all");
-
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/pembroke/images`);
+    const allSuggestionsRes = await fetch("https://dog.ceo/api/breeds/list/all");
+    const allSuggestions = await allSuggestionsRes.json();
+    const imagesRes = await fetch(`${process.env.NEXT_PUBLIC_API}/pembroke/images`);
+    const images = await imagesRes.json();
 
     return {
       props: {
-        images: data.message,
+        images: images.message,
         allSuggestions: Object.keys(allSuggestions.message),
       },
     };

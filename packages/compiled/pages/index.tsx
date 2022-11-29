@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import DogList from "../components/DogList";
 import Heading from "../components/Heading";
 
@@ -10,10 +9,9 @@ export default function IndexPage() {
 
   React.useEffect(() => {
     async function fetchSuggestions() {
-      const { data } = await axios.get("https://dog.ceo/api/breeds/list/all");
-      if (data) {
-        setSuggestions(Object.keys(data.message));
-      }
+      const res = await fetch("https://dog.ceo/api/breeds/list/all");
+      const { message } = await res.json();
+      if (message) setSuggestions(Object.keys(message));
     }
 
     fetchSuggestions();
@@ -22,10 +20,8 @@ export default function IndexPage() {
   React.useEffect(() => {
     setIsFetching(true);
     async function fetchData() {
-      const { data } = await axios.get("/api/dogs", {
-        params: { breed: "pembroke" },
-      });
-
+      const res = await fetch("/api/dogs?" + new URLSearchParams({ breed: "pembroke" }));
+      const data = await res.json();
       if (data) {
         setIsFetching(false);
         setImages(data);

@@ -12,7 +12,7 @@ const Input = ({ onChange, onKeyDown, value, placeholder = "Select breed" }: Pro
     <label>
       <input
         type="text"
-        className=""
+        className="w-full rounded-md p-2 border-blue-400 border-2"
         onChange={onChange}
         value={value}
         onKeyDown={onKeyDown}

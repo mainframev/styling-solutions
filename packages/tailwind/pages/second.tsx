@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import DogList from "../components/DogList";
+import Heading from "../components/Heading";
 
 interface Props {
   images: string[];
@@ -9,7 +10,9 @@ interface Props {
 export default function SecondPage({ images, allSuggestions }: Props) {
   return (
     <>
-      <h1>SSR</h1>
+      <Heading type="display" as="h1">
+        SSR
+      </Heading>
       <DogList images={images} allSuggestions={allSuggestions} />
     </>
   );

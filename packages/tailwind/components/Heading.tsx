@@ -1,4 +1,5 @@
 import * as React from "react";
+import clsx from "clsx";
 
 interface Props {
   type?: "display" | "displaySubtitle" | "title1" | "title2" | "title3" | "title4" | "title5";
@@ -9,17 +10,16 @@ const Heading = ({ type = "display", children, as = "div" }: React.PropsWithChil
   const Component = as;
   return (
     <Component
-      className={[
-        type === "display" && "text-5xl font-bold",
-        type === "displaySubtitle" && "text-4xl font-bold",
-        type === "title1" && "text-3xl font-bold",
-        type === "title2" && "text-2xl font-bold",
-        type === "title3" && "text-xl font-bold",
-        type === "title4" && "text-lg font-bold",
-        type === "title5" && "text-base uppercase font-bold",
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      className={clsx(
+        "font-bold my-2",
+        type === "display" && "text-5xl",
+        type === "displaySubtitle" && "text-4xl",
+        type === "title1" && "text-3xl",
+        type === "title2" && "text-2xl",
+        type === "title3" && "text-xl",
+        type === "title4" && "text-lg",
+        type === "title5" && "text-base uppercase",
+      )}
     >
       {children}
     </Component>

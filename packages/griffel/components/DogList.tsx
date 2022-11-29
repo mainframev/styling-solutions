@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/legacy/image";
 import { makeStyles, shorthands } from "@griffel/react";
 import Input from "./Input";
-import axios from "axios";
 import Loading from "./Loading";
 import useClickOutside from "../hooks/useClickOutside";
 import SuggestionList from "./SuggestionList";
@@ -102,10 +101,8 @@ const DogList = ({
     if (images.length > 0) setDoges(images);
 
     async function fetchDoges() {
-      const { data } = await axios.get("/api/dogs", {
-        params: { breed },
-      });
-
+      const res = await fetch("/api/dogs" + new URLSearchParams({ breed }));
+      const data = await res.json();
       if (data) {
         setLoading(false);
         setDoges(data);

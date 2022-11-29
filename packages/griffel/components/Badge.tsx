@@ -13,29 +13,26 @@ const useClasses = makeStyles({
     textAlign: "center",
     color: "#000",
     ...shorthands.borderRadius("6px"),
-    ...shorthands.padding("8px", "12px")
+    ...shorthands.padding("8px", "12px"),
   },
   primary: {
-    ...defaultTheme.components.badge["primary"]
+    ...defaultTheme.components.badge["primary"],
   },
   secondary: {
-    ...defaultTheme.components.badge["secondary"]
+    ...defaultTheme.components.badge["secondary"],
   },
   success: {
-    ...defaultTheme.components.badge["success"]
+    ...defaultTheme.components.badge["success"],
   },
   warning: {
-    ...defaultTheme.components.badge["warning"]
+    ...defaultTheme.components.badge["warning"],
   },
   alert: {
-    ...defaultTheme.components.badge["alert"]
-  }
+    ...defaultTheme.components.badge["alert"],
+  },
 });
 
-const Badge = ({
-  type = "primary",
-  children
-}: React.PropsWithChildren<Props>) => {
+const Badge = ({ type = "primary", children }: React.PropsWithChildren<Props>) => {
   const classes = useClasses();
   const className = mergeClasses(
     classes.basic,
@@ -43,7 +40,7 @@ const Badge = ({
     type === "secondary" && classes.secondary,
     type === "success" && classes.success,
     type === "warning" && classes.warning,
-    type === "alert" && classes.alert
+    type === "alert" && classes.alert,
   );
 
   return <div className={className}>{children}</div>;

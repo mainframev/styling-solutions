@@ -1,5 +1,5 @@
 {
-  "name": "linaria-rfc",
+  "name": "linaria",
   "description": "An example app to test linaria",
   "author": "mainframev",
   "version": "0.1.0",
@@ -16,7 +16,6 @@
     "@linaria/atomic": "^4.2.2",
     "@linaria/core": "^4.2.2",
     "@linaria/react": "^4.3.0",
-    "axios": "^1.1.3",
     "next": "13.0.4",
     "next-linaria": "^1.0.1-beta",
     "normalize.css": "^8.0.1",

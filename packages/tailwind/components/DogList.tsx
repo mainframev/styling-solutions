@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/legacy/image";
 import Input from "./Input";
-import axios from "axios";
 import Loading from "./Loading";
 import useClickOutside from "../hooks/useClickOutside";
 import SuggestionList from "./SuggestionList";
@@ -51,13 +50,10 @@ const DogList = ({
   React.useEffect(() => {
     if (isFetching) setLoading(true);
     if (images.length > 0) setDoges(images);
-    console.log(images);
 
     async function fetchDoges() {
-      const { data } = await axios.get("/api/dogs", {
-        params: { breed },
-      });
-
+      const res = await fetch("/api/dogs?" + new URLSearchParams({ breed }));
+      const data = await res.json();
       if (data) {
         setLoading(false);
         setDoges(data);
@@ -134,12 +130,9 @@ const DogList = ({
         value={value}
       />
       {!isLoading && (
-        <div>
+        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
           {doges.map((img, idx) => (
-            <div
-              key={idx}
-              className="relative h-96 w-auto hover:shadow-md sm:h-80 md:h-72 lg:grid-cols-4"
-            >
+            <div key={idx} className="relative h-80 w-auto md:h-60 lg:h-54">
               <Image
                 src={img}
                 alt={breed}

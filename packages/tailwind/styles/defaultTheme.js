@@ -1,4 +1,3 @@
-
 const palette = {
   white: {
     100: "#ffffff",
@@ -86,7 +85,7 @@ const palette = {
     700: "#BAC7D5",
     800: "#A6B6C8",
     900: "#94A8BE",
-  }
+  },
 };
 
 module.exports = {

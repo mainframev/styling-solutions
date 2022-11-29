@@ -25,6 +25,10 @@ node_modules
 # IDE - VSCode
 .vscode
 
+# env
+.env
+.env.local
+
 # misc
 /.sass-cache
 /connect.lock

@@ -1,70 +1,50 @@
 import React from "react";
+import clsx from "clsx";
+
+export type ButtonCustomColors =
+  | "Brown"
+  | "CornflowerBlue"
+  | "DarkGoldenRod"
+  | "DarkOliveGreen"
+  | "DarkSalmon"
+  | "DarkSlateGray"
+  | "IndianRed"
+  | "MidnightBlue"
+  | "Sienna"
+  | "Teal"
+  | "YellowGreen";
 
 interface Props {
-  customBackground?: string;
+  customBackground?: ButtonCustomColors;
   type?: "primary" | "secondary" | "success" | "warning" | "alert";
   size?: "small" | "medium" | "large";
 }
 
-const getBackgroundColor = ({
-  type,
-  customBackground,
-  hover,
-}: {
-  type?: Props["type"];
-  customBackground?: Props["customBackground"];
-  hover?: boolean;
-}): string => {
-  if (customBackground) return customBackground;
-  const bgToken = defaultTheme.components.button[type || "primary"];
-  if (hover) return bgToken.backgroundHover;
-  return bgToken.background;
-};
-
-const getColor = (type?: Props["type"]) => {
-  const bgToken = defaultTheme.components.button[type || "primary"];
-  return bgToken.color;
-};
-
-const getSize = (size?: Props["size"]) => {
-  if (size === "small") return 8;
-  if (size === "large") return 16;
-
-  return 12;
-};
-
-const StyledButton = styled.button<{
-  $type: Props["type"];
-  $size: Props["size"];
-  $customBackground?: Props["customBackground"];
-}>`
-  display: inline-flex;
-  align-items: center;
-  border: 0;
-  border-radius: 6px;
-  padding: ${({ $size }) => `${getSize($size)}px`};
-  box-sizing: border-box;
-  font-weight: 450;
-  cursor: pointer;
-  background-color: ${({ $type, $customBackground }) =>
-    getBackgroundColor({ type: $type, customBackground: $customBackground })};
-  transition: background-color 0.25s ease-in;
-  color: ${({ $type }) => getColor($type)};
-  &:hover {
-    background-color: ${({ $type }) => getBackgroundColor({ type: $type, hover: true })};
-  }
-`;
-
 const Button = ({
-  type,
+  type = "primary",
   size = "medium",
   children,
   customBackground,
 }: React.PropsWithChildren<Props>) => {
   return (
-    <StyledButton $type={type} $size={size} tabIndex={0} $customBackground={customBackground}>
+    <button
+      type="button"
+      style={{ background: customBackground }}
+      className={clsx(
+        "rounded-md cursor-pointer inline-flex border-0 box-border font-medium items-center",
+        size === "small" && "p-2",
+        size === "medium" && "p-3",
+        size === "large" && "p-4",
+        type === "primary" && "bg-product-400 text-white-100 hover:bg-product-500",
+        type === "secondary" && "bg-cloud-400 text-white hover:bg-cloud-500",
+        type === "success" && "bg-green-400 hover:bg-green-500 text-white-100",
+        type === "warning" && "bg-orange-400 text-white-100 hover:bg-orange-500",
+        type === "alert" && "bg-red-400 text-white-100 hover:bg-red-500",
+        customBackground && `bg-${customBackground}`,
+      )}
+    >
       {children}
-    </StyledButton>
+    </button>
   );
 };
 
