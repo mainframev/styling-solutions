@@ -132,7 +132,7 @@ const defaultTheme = {
         backgroundColor: palette.green["400"],
       },
       warning: {
-        color: palette.ink,
+        color: palette.ink["900"],
         backgroundColor: palette.orange["400"],
       },
       alert: {
