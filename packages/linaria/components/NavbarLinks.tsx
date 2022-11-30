@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { styled } from "@linaria/react";
+import { defaultTheme } from "../styles/theme";
 
 const StyledNavbarLinks = styled.nav`
   display: flex;
@@ -17,7 +18,7 @@ const StyledNavbarLinks = styled.nav`
     padding: 10px 12px;
     border-radius: 6px;
     &:hover {
-      background: #333;
+      background: ${defaultTheme.product["500"]};
     }
   }
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import { styled, css } from "@compiled/react";
+import defaultTheme from "../styles/theme";
 
 interface Props {
   refs: Record<string, React.RefObject<HTMLLIElement>>;
@@ -21,7 +22,7 @@ const StyledListWrapper = styled.ul`
   position: absolute;
   top: 50px;
   z-index: 10;
-  background: #fff;
+  background: ${defaultTheme.cloud["100"]};
   width: 100%;
   list-style: none;
   max-height: 200px;

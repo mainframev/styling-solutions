@@ -100,7 +100,7 @@ const defaultTheme = {
         backgroundHover: palette.product["500"],
       },
       secondary: {
-        color: palette.ink,
+        color: palette.ink["900"],
         background: palette.cloud["400"],
         backgroundHover: palette.cloud["500"],
       },
@@ -134,7 +134,7 @@ const defaultTheme = {
         backgroundColor: palette.green["400"],
       },
       warning: {
-        color: palette.ink,
+        color: palette.ink["900"],
         backgroundColor: palette.orange["400"],
       },
       alert: {

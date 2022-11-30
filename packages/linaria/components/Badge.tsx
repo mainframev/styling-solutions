@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "@linaria/react";
-import { defaultTheme } from "../styles/theme";
+import { defaultTheme, useTheme } from "../styles/theme";
 
 interface Props {
   type?: "primary" | "secondary" | "success" | "warning" | "alert";
@@ -35,8 +35,10 @@ const StyledBadge = styled.div<{ theme: typeof defaultTheme; type: Props["type"]
 `;
 
 const Badge = ({ type = "primary", children }: React.PropsWithChildren<Props>) => {
+  const theme = useTheme();
+
   return (
-    <StyledBadge theme={defaultTheme} type={type}>
+    <StyledBadge theme={theme} type={type}>
       {children}
     </StyledBadge>
   );

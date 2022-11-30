@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { styled } from "@compiled/react";
+import defaultTheme from "../styles/theme";
 
 const StyledNavbarLinks = styled.nav`
   display: flex;
@@ -9,15 +10,15 @@ const StyledNavbarLinks = styled.nav`
 
   > a {
     box-sizing: border-box;
-    background: #000;
+    background: ${defaultTheme.product["400"]};
     font-size: 1rem;
     text-decoration: none;
-    color: #fff;
+    color: ${defaultTheme.white["100"]};
     transition: background 0.2s ease-in;
     padding: 10px 12px;
     border-radius: 6px;
     &:hover {
-      background: #333;
+      background: ${defaultTheme.product["500"]};
     }
   }
 `;

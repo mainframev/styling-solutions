@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@linaria/react";
-import { defaultTheme } from "../styles/theme";
+import { useTheme, defaultTheme } from "styles/theme";
 
 export type ButtonCustomColors =
   | "Brown"
@@ -22,21 +22,23 @@ interface Props {
 }
 const getBackgroundColor = ({
   type,
+  theme,
   customBackground,
   hover,
 }: {
   type?: Props["type"];
+  theme: typeof defaultTheme;
   customBackground?: Props["customBackground"];
   hover?: boolean;
 }): string => {
   if (customBackground) return customBackground;
-  const bgToken = defaultTheme.components.button[type || "primary"];
+  const bgToken = theme.components.button[type || "primary"];
   if (hover) return bgToken.backgroundHover;
   return bgToken.background;
 };
 
-const getColor = (type?: Props["type"]) => {
-  const bgToken = defaultTheme.components.button[type || "primary"];
+const getColor = (type?: Props["type"]) => (theme: typeof defaultTheme) => {
+  const bgToken = theme.components.button[type || "primary"];
   return bgToken.color;
 };
 
@@ -49,6 +51,7 @@ const getSize = (size?: Props["size"]) => {
 
 const StyledButton = styled.button<{
   $type: Props["type"];
+  $theme: typeof defaultTheme;
   $size: Props["size"];
   $customBackground?: Props["customBackground"];
 }>`
@@ -60,12 +63,13 @@ const StyledButton = styled.button<{
   box-sizing: border-box;
   font-weight: 450;
   cursor: pointer;
-  background-color: ${({ $type, $customBackground }) =>
-    getBackgroundColor({ type: $type, customBackground: $customBackground })};
+  background-color: ${({ $type, $customBackground, $theme }) =>
+    getBackgroundColor({ type: $type, customBackground: $customBackground, theme: $theme })};
   transition: background-color 0.25s ease-in;
-  color: ${({ $type }) => getColor($type)};
+  color: ${({ $type, $theme }) => getColor($type)($theme)};
   &:hover {
-    background-color: ${({ $type }) => getBackgroundColor({ type: $type, hover: true })};
+    background-color: ${({ $type, $theme }) =>
+      getBackgroundColor({ type: $type, hover: true, theme: $theme })};
   }
 `;
 
@@ -75,8 +79,16 @@ const Button = ({
   children,
   customBackground,
 }: React.PropsWithChildren<Props>) => {
+  const theme = useTheme();
+
   return (
-    <StyledButton $type={type} $size={size} tabIndex={0} $customBackground={customBackground}>
+    <StyledButton
+      $type={type}
+      $size={size}
+      tabIndex={0}
+      $customBackground={customBackground}
+      $theme={theme}
+    >
       {children}
     </StyledButton>
   );

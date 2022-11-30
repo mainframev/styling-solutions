@@ -7,11 +7,11 @@ const useClasses = makeStyles({
   Wrapper: {
     display: "flex",
     alignItems: "center",
-    ...shorthands.gap("12px")
+    ...shorthands.gap("12px"),
   },
   Link: {
     boxSizing: "border-box",
-    backgroundColor: theme.primary,
+    backgroundColor: theme.product["400"],
     textDecorationLine: "none",
     color: "#fff",
     cursor: "pointer",
@@ -20,8 +20,8 @@ const useClasses = makeStyles({
     transitionProperty: "background-color",
     ...shorthands.padding("10px", "12px"),
     ...shorthands.borderRadius("6px"),
-    ":hover": { backgroundColor: theme.components.button.primary.backgroundHover }
-  }
+    ":hover": { backgroundColor: theme.components.button.primary.backgroundHover },
+  },
 });
 
 const NavbarLinks = () => {

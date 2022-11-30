@@ -7,7 +7,7 @@ const StyledNavbar = styled.div`
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0px 0px 2px 0px rgba(37, 42, 49, 0.16), 0px -2px 4px 0px rgba(37, 42, 49, 0.12);
-  padding: 20px 0; 
+  padding: 20px 0;
 `;
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
         <NavbarLinks />
       </div>
     </StyledNavbar>
-  )
+  );
 };
 
 export default Navbar;

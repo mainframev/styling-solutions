@@ -98,7 +98,7 @@ const defaultTheme = {
         backgroundHover: palette.product["500"],
       },
       secondary: {
-        color: palette.ink,
+        color: palette.ink["900"],
         background: palette.cloud["400"],
         backgroundHover: palette.cloud["500"],
       },
