@@ -10,6 +10,7 @@
     "linaria": "pnpm --filter linaria",
     "griffel": "pnpm --filter griffel",
     "compiled": "pnpm --filter compiled",
+    "styled-components": "pnpm --filter styled-components",
     "tailwind": "pnpm --filter tailwind",
     "prepare": "husky install"
   },
@@ -27,7 +28,6 @@
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
-    "typescript": "4.9.3",
-    "@nrwl/nx-cloud": "latest"
+    "typescript": "4.9.3"
   }
 }
