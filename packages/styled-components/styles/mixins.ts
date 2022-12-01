@@ -1,4 +1,4 @@
-import { css } from "@compiled/react";
+import { css } from "styled-components";
 
 export const containerMixin = css`
   max-width: 1100px;
