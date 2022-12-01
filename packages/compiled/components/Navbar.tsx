@@ -4,7 +4,7 @@ import { styled } from "@compiled/react";
 import defaultTheme from "../styles/theme";
 
 const StyledNavbar = styled.div`
-  background: ${defaultTheme.white["100"]},
+  background: ${defaultTheme.white["100"]};
   box-sizing: border-box;
   box-shadow: 0px 0px 2px 0px rgba(37, 42, 49, 0.16), 0px -2px 4px 0px rgba(37, 42, 49, 0.12);
   padding: 20px 0;
