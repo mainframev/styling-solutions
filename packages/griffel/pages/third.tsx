@@ -65,7 +65,7 @@ const ComponentSet = () => {
 
 export default function ThirdPage() {
   const classes = useClasses();
-
+  const timer = React.useRef<NodeJS.Timeout>();
   const [forceRerender, setForceRerender] = React.useState(0);
   const buttonColors: ButtonCustomColors[] = [
     "Brown",
@@ -81,10 +81,14 @@ export default function ThirdPage() {
     "YellowGreen",
   ];
 
-  const timer = setTimeout(function () {
-    if (forceRerender >= buttonColors.length - 1) clearTimeout(timer);
-    else setForceRerender(forceRerender + 1);
-  }, 1000);
+  React.useEffect(() => {
+    timer.current = setTimeout(() => {
+      if (forceRerender >= buttonColors.length - 1) clearTimeout(timer.current);
+      else setForceRerender(forceRerender + 1);
+    }, 1000);
+
+    return () => clearTimeout(timer.current);
+  }, [forceRerender]);
 
   return (
     <div className={mergeClasses(classes.wrapper, classes.gap)}>

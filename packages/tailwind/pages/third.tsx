@@ -63,10 +63,16 @@ export default function ThirdPage() {
     "YellowGreen",
   ];
 
-  const timer = setTimeout(function () {
-    if (forceRerender >= buttonColors.length - 1) clearTimeout(timer);
-    else setForceRerender(forceRerender + 1);
-  }, 1000);
+  const timer = React.useRef<NodeJS.Timeout>();
+
+  React.useEffect(() => {
+    timer.current = setTimeout(() => {
+      if (forceRerender >= buttonColors.length - 1) clearTimeout(timer.current);
+      else setForceRerender(forceRerender + 1);
+    }, 1000);
+
+    return () => clearTimeout(timer.current);
+  }, [forceRerender]);
 
   return (
     <div className="flex flex-col gap-8 items-start">

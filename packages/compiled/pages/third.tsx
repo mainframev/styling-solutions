@@ -71,6 +71,7 @@ const ComponentSet = () => {
 
 export default function ThirdPage() {
   const [forceRenderer, setForceRenderer] = React.useState(0);
+  const timer = React.useRef<NodeJS.Timeout>();
   const buttonColors: ButtonCustomColors[] = [
     "Brown",
     "CornflowerBlue",
@@ -85,10 +86,14 @@ export default function ThirdPage() {
     "YellowGreen",
   ];
 
-  const timer = setTimeout(function () {
-    if (forceRenderer >= buttonColors.length - 1) clearTimeout(timer);
-    else setForceRenderer(forceRenderer + 1);
-  }, 1000);
+  React.useEffect(() => {
+    timer.current = setTimeout(() => {
+      if (forceRenderer >= buttonColors.length - 1) clearTimeout(timer.current);
+      else setForceRenderer(forceRenderer + 1);
+    }, 1000);
+
+    return () => clearTimeout(timer.current);
+  }, [forceRenderer]);
 
   return (
     <Stack $direction="column">
